@@ -1,0 +1,191 @@
+---
+title: 中级军吏俑
+layout: product
+permalink: /qupin/2019004/
+---
+
+<nav class="navbar navbar-dark" style="background-color: red;">
+    <a class="navbar-brand" href="#">
+        <!-- <img src="../assets/images/qp_logo.png" style="max-height:30px" alt=""> -->
+        中级军吏俑
+    </a>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div id="model-meta" data-model-url="http://web-resources.jumor.cn/趣拼/中级军吏俑/2.fbx"
+            data-texture-url="../assets/3D/1/510-002527_0.jpg" data-scale="0.025" data-offset-x="" data-offset-y=""
+            data-offset-z=""></div>
+    </div>
+
+    <div class="row">
+
+    </div>
+    <div class="row">
+        <div id="model" class="col-xs-12">
+            <div id="model-container">
+                <div class="box">
+                    <div id="loading">
+                        <div class="loader">
+                            <div class="ball-scale-ripple-multiple">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="info">
+                    </div>
+                </div>
+
+                <div class="alert alert-default model-info" role="alert">
+                    <p> <strong> 秦始皇帝陵博物院</strong></p>
+                    <p> 秦始皇帝陵博物院 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 center-block">
+            <audio controls>
+                <source src="http://web-resources.jumor.cn/%E8%B6%A3%E6%8B%BC/%E4%B8%AD%E7%BA%A7%E5%86%9B%E5%90%8F%E4%BD%A3/%E4%B8%AD%E7%BA%A7%E5%86%9B%E5%90%8F%E4%BF%91.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <p style="color:#e2dede; margin-left: 20px; margin-right: 20px;margin-top: 20px;">
+                <strong>中级军吏俑（The Middle-ranking
+                    Officer）</strong>，他的级别低于将军，高于士兵。中级军吏俑头戴双板长冠，身穿交领右衽长襦，外披带彩色花边的前胸甲，没有背甲，下穿长裤，脚蹬翘尖履，左手做按剑状。中级军吏俑神态恭谨、勇武与干练。
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // if (WEBGL.isWebGLAvailable() === false) {
+    //     document.body.appendChild(WEBGL.getWebGLErrorMessage());
+    // }
+    var container, stats, controls;
+    var camera, scene, renderer, light;
+    var clock = new THREE.Clock();
+
+    var modelOptions = $('#model-meta').data();
+
+    var modelUrl = modelOptions['modelUrl'];
+    var textureUrl = modelOptions['textureUrl'];
+
+    var navbarHeight = 59;
+    var mixer;
+    init();
+    animate();
+
+
+
+    function init() {
+        // container = document.createElement('div');
+        // document.body.appendChild(container);
+
+        container = $('#model-container')[0];
+        $('#model').append(container);
+        camera = new THREE.PerspectiveCamera(35, window.innerWidth / (window.innerHeight * 0.6 -
+            navbarHeight), 1, 2000);
+        camera.position.set(14.64282245551079, 0.4968891386373931, 98.50393078715281);
+        camera.rotation.set(-0.005044315695744707, 0.1475696601376536, 0.0007416953160947438);
+
+
+
+        // camera = new THREE.PerspectiveCamera(45, window.innerWidth / (window.innerHeight - 0),
+        //         1,
+        //         2000);
+        // camera.position.z = 0;
+
+        scene = new THREE.Scene();
+        // scene.background = new THREE.Color(0xa0a0a0);
+        //scene.fog = new THREE.Fog(0xa0a0a0, 200, 1000);
+        var ambient = new THREE.AmbientLight(0xFFFFFF, 1);
+        scene.add(ambient);
+
+        // texture
+        var manager = new THREE.LoadingManager();
+        manager.onProgress = function (item, loaded, total) {
+            console.log(item, loaded, total);
+        };
+
+        var texture = new THREE.Texture();
+
+        var $info = $('#info');
+        var onProgress = function (xhr) {
+            if (xhr.lengthComputable) {
+                var percentComplete = xhr.loaded / xhr.total * 100;
+                console.log(percentComplete);
+                console.log(Math.round(percentComplete, 2) + '% downloaded');
+                if (Math.round(percentComplete, 2) >= 99) {
+                    // 加载完成
+                    $(".box").hide();
+
+                } else {
+                    $info.text("模型加载中 " + Math.round(percentComplete, 2) + '%');
+                }
+            }
+        };
+        var onError = function (xhr) {};
+
+        // model
+        var loader = new THREE.FBXLoader(manager);
+        loader.load(modelUrl, function (object) {
+            // mixer = new THREE.AnimationMixer(object);
+            // var action = mixer.clipAction(object.animations[0]);
+            // action.play();
+            object.traverse(function (child) {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+            scene.add(object);
+            // object.scale.set(100,100,100);
+        }, onProgress, onError);
+        renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            alpha: true
+        });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, (window.innerHeight * 0.6 - navbarHeight));
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.minDistance = 50;
+        controls.maxDistance = 150;
+
+        controls.minPolarAngle = 1;
+        controls.maxPolarAngle = 2
+        controls.target.set(0, 0, 0);
+        controls.update();
+
+        window.addEventListener('resize', onWindowResize, false);
+        // stats
+        // stats = new Stats();
+        // container.appendChild(stats.dom);
+    }
+
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / (window.innerHeight * 0.6 - navbarHeight);
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, (window.innerHeight * 0.6 - navbarHeight));
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        // var delta = clock.getDelta();
+        // if (mixer) mixer.update(delta);
+        renderer.render(scene, camera);
+        // stats.update();
+
+        // console.log(camera.position.x + "|" + camera.position.y + "|" + camera.position.z + "|" + camera.rotation
+        //     .x +
+        //     "|" + camera.rotation.y + "|" + camera.rotation.z);
+    }
+</script>

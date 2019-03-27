@@ -1,0 +1,23 @@
+<div class="solution-sidebar well well-sm m-t-40 hidden-sm hidden-xs" data-spy="affix" data-offset-top="400" data-offset-bottom="200">
+  <h3>解决方案</h3>
+
+  <ul class="list-unstyled">
+    <li {% if page.url == '/solutions/tour/' %} class="active" {% endif %}>
+      <a href="/solutions/tour/"><i class="glyphicon glyphicon-chevron-right"></i> 智慧旅游</a>
+    </li>
+    <li {% if page.url == '/solutions/museum/' %} class="active" {% endif %}>
+      <a href="/solutions/museum/"><i class="glyphicon glyphicon-chevron-right"></i> 智慧文博</a>
+    </li>
+  </ul>
+</div>
+
+<div class="visible-sm-block visible-xs-block m-t-20">
+  <ul class="nav nav-pills solution-navs">
+    <li {% if page.url == '/solutions/tour/' %} class="active" {% endif %}>
+      <a href="/solutions/tour/">智慧旅游</a>
+    </li>
+    <li {% if page.url == '/solutions/museum/' %} class="active" {% endif %}>
+      <a href="/solutions/museum/">智慧文博</a>
+    </li>
+  </ul>
+</div>

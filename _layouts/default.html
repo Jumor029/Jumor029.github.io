@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="西安峻茂 峻茂信息 智慧旅游 智慧文博 智慧家居 智慧城市">
+    <meta name="description" content="西安峻茂信息科技有限公司立足于古城西安，致力于提供完善的智慧服务解决方案，主要面向智慧城市、智慧文博、智慧旅游、智慧家居几大领域。峻茂信息拥有经验丰富的技术人才，拥有高素质的工作团队，可以及时为客户提供完善的解决方案。">
+    <title>
+      {% if page.title %}
+        {{ page.title }} | {{site.title}}
+      {% else %}
+        {{site.index_title}}
+      {% endif %}
+    </title>
+    {% unless page.title %}
+    <!-- 规范首页地址 -->
+    <link rel="canonical" href="{{ site.url }}">
+    {% endunless %}
+    <link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ "/assets/vendor/bootstrap-3.3.7/css/bootstrap.min.css" | prepend: site.baseurl }}" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="{{ "/assets/vendor/util.css-0.1.7/util.min.css" | prepend: site.baseurl }}" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}" media="screen" charset="utf-8">
+  </head>
+  <body>
+    {% include nav.html %}
+
+    {{content}}
+
+    <div class="p-v-30 p-b-30" style="background-color: #faf9fb; color: #999;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 p-t-30">
+            <span>
+              陕ICP备16012344号 西安峻茂信息科技有限公司 <br>
+              Copyright © 2016 Xian Jumor Information and Technology Co., Ltd All Rights Reserved. 峻茂科技 版权所有
+            </span>
+            <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+          </div>
+          <div class="col-md-2 text-center">
+            <img style="max-width: 100px;" src="{{ "/assets/images/qrcode_for_gh_63f619c9a50b_344.jpg" | prepend: site.baseurl }}" alt="微信公众号">
+            <div>
+            关注微信公众号
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="{{ "/assets/vendor/jquery-1.12.4.min.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "/assets/vendor/bootstrap-3.3.7/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+    {% include baidu_tongji.html %}
+  </body>
+</html>
