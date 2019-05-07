@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="西安峻茂 峻茂信息 智慧旅游 智慧文博 智慧家居 智慧城市">
+  <meta name="description"
+    content="西安峻茂信息科技有限公司立足于古城西安，致力于提供完善的智慧服务解决方案，主要面向智慧城市、智慧文博、智慧旅游、智慧家居几大领域。峻茂信息拥有经验丰富的技术人才，拥有高素质的工作团队，可以及时为客户提供完善的解决方案。">
+  <title>
+    {% if page.title %}
+    {{ page.title }} | 趣拼博物馆
+    {% else %}
+    {{site.index_title}}
+    {% endif %}
+  </title>
+
+  <link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="{{ "/assets/vendor/util.css-0.1.7/util.min.css" | prepend: site.baseurl }}"
+    media="screen" charset="utf-8">
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="/assets/css/loaders/loaders.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background-image: url('/assets/images/bg.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    #model-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .box {
+      position: absolute;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    #info {
+      position: absolute;
+      text-align: center;
+      margin-top: 20px;
+      color: #ccc;
+      font-size: 12px;
+      /* background-color: #333; */
+      /* font-size: 16px; */
+    }
+
+    #model-container #tooltip {
+      display: none;
+      color: rgba(255, 255, 255, 0.5);
+      background-color: #333;
+      position: absolute;
+      top: 5px;
+      padding-left: 10px;
+      font-size: 12px;
+    }
+
+    /* 
+    #model-container #loading .loader {
+        position: relative;
+        left: 50%;
+    }  */
+
+    #model-container .model-info {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      align-self: baseline;
+      margin-left: 10px;
+      margin-right: 10px;
+      background-color: rgba(221, 221, 221, 0.8);
+      border: 0;
+      display: none;
+    }
+
+    .center-block {
+      float: none;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <script type="text/javascript" src="{{ "/assets/vendor/jquery-1.12.4.min.js" | prepend: site.baseurl }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.min.js"></script>
+  <script src="/assets/vendor/threejs/js/libs/inflate.min.js"></script>
+  <script src="/assets/vendor/threejs/js/loader/FBXLoader.js"></script>
+  <script src="/assets/vendor/threejs/js/controls/OrbitControls.js"></script>
+  <script src="/assets/vendor/animatedModal/animatedModal.min.js"></script>
+
+  {{content}}
+
+</body>
+
+</html>
