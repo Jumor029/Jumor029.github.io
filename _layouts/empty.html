@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="西安峻茂 峻茂信息 智慧旅游 智慧文博 智慧家居 智慧城市">
-    <meta name="description" content="西安峻茂信息科技有限公司立足于古城西安，致力于提供完善的智慧服务解决方案，主要面向智慧城市、智慧文博、智慧旅游、智慧家居几大领域。峻茂信息拥有经验丰富的技术人才，拥有高素质的工作团队，可以及时为客户提供完善的解决方案。">
-    <title>
-      {% if page.title %}
-        {{ page.title }} | {{site.title}}
-      {% else %}
-        {{site.index_title}}
-      {% endif %}
-    </title>
-    <link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    {{content}}
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="西安峻茂 峻茂信息 智慧旅游 智慧文博 智慧家居 智慧城市">
+  <meta name="description"
+    content="西安峻茂信息科技有限公司立足于古城西安，致力于提供完善的智慧服务解决方案，主要面向智慧城市、智慧文博、智慧旅游、智慧家居几大领域。峻茂信息拥有经验丰富的技术人才，拥有高素质的工作团队，可以及时为客户提供完善的解决方案。">
+  <title>
+    {% if page.title %}
+    {{ page.title }} | {{site.title}}
+    {% else %}
+    {{site.index_title}}
+    {% endif %}
+  </title>
+  {% unless page.title %}
+  <!-- 规范首页地址 -->
+  <link rel="canonical" href="{{ site.url }}">
+  {% endunless %}
+  <link rel="Shortcut Icon" href="/assets/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  {{content}}
+</body>
+
 </html>
